@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#172d52">
+<title>Para vos</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+:root{--night:#101a2b;--blue:#355f9b;--blue2:#6e91c2;--paper:#fcfaf5;--ink:#24252a;--muted:#77777b;--line:#dfe5ed}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:#f3f1ed;font-family:'DM Sans',sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:radial-gradient(#888 0.45px,transparent .45px);background-size:7px 7px}
+.hero{min-height:100vh;background:linear-gradient(145deg,#0d1728,#203d67 55%,#5478a8);color:white;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:600px;height:600px;border:1px solid rgba(255,255,255,.14);border-radius:50%;top:-240px;right:-180px;box-shadow:0 0 0 70px rgba(255,255,255,.025),0 0 0 140px rgba(255,255,255,.018)}
+.hero-inner{padding:35px 22px;position:relative;z-index:2}
+.flower{font-size:31px;letter-spacing:12px;color:#b9cceb;margin-bottom:22px}
+.hero h1{font-family:'Libre Baskerville',serif;font-size:clamp(45px,12vw,82px);font-weight:400;letter-spacing:-3px;margin:0 0 15px}
+.hero .sub{font-family:Caveat,cursive;font-size:27px;line-height:1.3;color:#e1e8f4}
+.start{margin-top:35px;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);color:white;padding:12px 25px;border-radius:30px;font:500 13px 'DM Sans';letter-spacing:1px;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(8px)}
+.wrap{max-width:780px;margin:auto;padding:70px 18px 90px}
+.intro{text-align:center;max-width:620px;margin:0 auto 55px;color:#666;font:italic 17px/1.8 'Libre Baskerville',serif}
+.music-note{display:flex;justify-content:center;gap:14px;align-items:center;margin-bottom:45px;color:var(--blue);font-size:12px;letter-spacing:2px;text-transform:uppercase}
+.music-note:before,.music-note:after{content:"";height:1px;background:#cbd6e4;width:80px}
+.poem{background:var(--paper);border:1px solid #e5e0d8;border-radius:4px;padding:38px 34px;margin:30px 0;box-shadow:0 16px 45px rgba(40,45,55,.07);position:relative}
+.poem:before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;background:linear-gradient(90deg,transparent,var(--blue2),transparent);opacity:.7}
+.number{font:600 11px 'DM Sans';letter-spacing:3px;color:var(--blue);text-transform:uppercase}
+h2{font:400 31px 'Libre Baskerville',serif;margin:7px 0 25px;color:#182946}
+.verses{font:18px/1.95 'Libre Baskerville',serif;white-space:pre-line}
+.audio{margin-top:29px;padding-top:19px;border-top:1px dashed #ccd5e1}
+.audio-label{display:block;font:600 10px 'DM Sans';letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:9px}
+audio{width:100%;height:38px}
+.song{margin:65px auto 20px;max-width:600px;text-align:center;color:#6e6e73}
+.song .scribble{font:500 28px Caveat,cursive;color:var(--blue)}
+.song p{font-size:13px;line-height:1.7}
+.closing{text-align:center;padding:50px 0 20px}
+.closing h3{font:400 28px 'Libre Baskerville',serif;color:#1a2b48}
+.closing p{max-width:580px;margin:18px auto;font:italic 17px/1.9 'Libre Baskerville',serif;color:#686a70}
+.footer{text-align:center;color:#9a9ba0;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-top:60px}
+@media(max-width:560px){.poem{padding:30px 22px}.verses{font-size:16.5px}.hero .sub{font-size:24px}.poem h2{font-size:27px}}
+
+.blue-sprinkle{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+  color:#4f78ad;
+  font-family:Georgia,serif;
+  font-size:19px;
+  opacity:.82;
+  user-select:none;
+}
+.blue-sprinkle span:nth-child(1){transform:rotate(-12deg) translateY(3px)}
+.blue-sprinkle span:nth-child(2){font-size:15px;transform:translateY(-5px)}
+.blue-sprinkle span:nth-child(3){transform:rotate(8deg) translateY(4px)}
+.blue-sprinkle.alt{gap:35px;opacity:.65}
+.blue-sprinkle.alt span:nth-child(1){font-size:14px}
+.blue-sprinkle.alt span:nth-child(2){font-size:20px}
+.blue-sprinkle.alt span:nth-child(3){font-size:16px}
+@media(max-width:560px){
+  .blue-sprinkle{height:58px;gap:23px;font-size:17px}
+}
+</style>
+</head>
+<body>
+<section class="hero">
+<div class="hero-inner">
+<div class="flower">✦ · ✦</div>
+<h1>Para vos</h1>
+<div class="sub">algunas cosas que no quería<br>dejar solamente en mi cabeza</div>
+<button class="start" onclick="document.getElementById('poems').scrollIntoView()">leer las cartas</button>
+</div>
+</section>
+
+<main class="wrap" id="poems">
+<p class="intro">No sé si estas palabras alcanzan para explicar todo lo que siento. Pero son momentos, pensamientos y pequeñas cosas que, desde que llegaste, empezaron a significar mucho más.</p>
+<div class="music-note">una pequeña colección de palabras</div>
+
+<article class="poem"><span class="number">01 · Hasta que vos llegaste</span><h2>Hasta que vos llegaste</h2><div class="verses">no pense que fuese gran hazaña
+despertarse y hablar con alguien cada mañana
+
+hasta que vos llegaste
+y sin si quiera un beso
+cambiaste eso
+
+ahora entiendo cómo alguien podría
+darme más felicidad
+que ganar la lotería
+
+porque con tu compañía
+mi consola solo la maneja alegría</div><div class="audio"><span class="audio-label">Escuchalo en mi voz</span><audio controls src="audios/01-hasta-que-vos-llegaste.mp3"></audio></div></article>
+<div class="blue-sprinkle" aria-hidden="true"><span>♡</span><span>✦</span><span>⚡</span></div>
+
+
+<article class="poem"><span class="number">02 · No pensé nunca</span><h2>No pensé nunca</h2><div class="verses">no pensé nunca
+que pudiera hablarte
+
+mucho menos
+que podria extrañarte
+y ni hubiera pensado
+en la posibilidad de enamorarme
+
+pero agradezco
+que en vos no existiera esa duda
+
+porque no imagino peor tortura
+que una vida
+en la que no te ame con locura</div><div class="audio"><span class="audio-label">Escuchalo en mi voz</span><audio controls src="audios/02-no-pense-nunca.mp3"></audio></div></article>
+<div class="blue-sprinkle alt" aria-hidden="true"><span>✦</span><span>♡</span><span>✧</span></div>
+
+
+<article class="poem"><span class="number">03 · Esa noche</span><h2>Esa noche</h2><div class="verses">no se si esa noche
+te quedaste pensando en eso
+
+en ese acercamiento
+que no terminó en beso
+
+por mi miedo de ser un apurado
+por no querer apartarme de tu lado
+
+o en ese viaje de vuelta
+que en mi cabeza esa noche dio mil vueltas
+
+como esos mensajes nerviosos
+intentando no pasarme de cariñoso
+
+y por más que tenga mala memoria
+ahora esa noche es parte de nuestra historia</div><div class="audio"><span class="audio-label">Escuchalo en mi voz</span><audio controls src="audios/03-esa-noche.mp3"></audio></div></article>
+<div class="blue-sprinkle" aria-hidden="true"><span>⚡</span><span>✦</span><span>♡</span></div>
+
+
+<article class="poem"><span class="number">04 · Sin prisas</span><h2>Sin prisas</h2><div class="verses">no quiero obligarte
+a que quieras quedarte
+
+quiero que te quedes
+porque te nace amarme
+
+porque cuando me miras
+solo piensas en nuestras risas
+
+y que contigo
+quiero una vida sin prisas</div><div class="audio"><span class="audio-label">Escuchalo en mi voz</span><audio controls src="audios/04-sin-prisas.mp3"></audio></div></article>
+<div class="blue-sprinkle alt" aria-hidden="true"><span>♡</span><span>✧</span><span>⚡</span></div>
+
+
+<article class="poem"><span class="number">05 · No puedo odiarte</span><h2>No puedo odiarte</h2><div class="verses">necesito que sepas
+que nunca podré odiarte,
+porque no hay peor sentimiento
+que el opuesto de amarte.
+
+tenerte en mis brazos
+me llevaba a marte,
+y me moría de amor
+cada vez que me pedías un mate.
+
+entendé que no voy a odiarte,
+porque de mi parte
+siempre serás mi mejor martes.
+
+podré tener mala memoria,
+pero nada me dará la alegría
+de recordar aquel primero de septiembre,
+que justo cayó ese día.</div><div class="audio"><span class="audio-label">Escuchalo en mi voz</span><audio controls src="audios/05-no-puedo-odiarte.mp3"></audio></div></article>
+<div class="blue-sprinkle" aria-hidden="true"><span>✦</span><span>♡</span><span>✦</span></div>
+
+
+<article class="poem"><span class="number">06 · Vale la pena</span><h2>Vale la pena</h2><div class="verses">si me dejas
+me voy a arriesgar
+
+porque al agarrar una rosa
+sé que me puedo cortar
+
+y aun teniendo eso en mente
+te volvería a elegir
+
+porque si el riesgo sos vos
+vale la pena sufrir</div><div class="audio"><span class="audio-label">Escuchalo en mi voz</span><audio controls src="audios/06-vale-la-pena.mp3"></audio></div></article>
+<div class="blue-sprinkle alt" aria-hidden="true"><span>⚡</span><span>✧</span><span>♡</span></div>
+
+
+<article class="poem"><span class="number">07 · No quiero</span><h2>No quiero</h2><div class="verses">no quiero conocer a alguien otra vez
+y que no se sienta como nuestra primera vez
+
+no quiero contarle a alguien
+las cosas que nunca pensé en hablar alguna vez
+
+no quiero llenar de besos la cara de alguien como a vos,
+sabiendo que nadie los repetiría con tanto amor
+
+no quiero preguntarle a nadie mas su color favorito
+sabiendo que desde que te conocí,
+el azul quedo escrito
+
+no quiero pasar noches hablando con otra persona
+sabiendo que con vos
+los minutos parecian horas
+
+no quiero iniciar otra vez con alguien
+que no me hace sentir
+"como si fuera la primera vez""</div><div class="audio"><span class="audio-label">Escuchalo en mi voz</span><audio controls src="audios/07-no-quiero.mp3"></audio></div></article>
+<div class="blue-sprinkle" aria-hidden="true"><span>♡</span><span>✦</span><span>⚡</span></div>
+
+
+<article class="poem"><span class="number">08 · ¿Y si no te hubiera conocido?</span><h2>¿Y si no te hubiera conocido?</h2><div class="verses">¿y si no te hubiera conocido?
+
+no es algo que quiera pensar,
+porque necesitaría un mar de lágrimas
+para intentar borrar
+todas las sonrisas que en mi llegaste a pintar.
+
+porque cuando me mirás,
+el tiempo se detiene,
+
+y nada corre más rápido
+que los latidos de mi corazón
+cuando pienso en vos.</div><div class="audio"><span class="audio-label">Escuchalo en mi voz</span><audio controls src="audios/08-y-si-no-te-hubiera-conocido.mp3"></audio></div></article>
+
+<section class="closing">
+<h3>Si alguna vez te preguntás por qué escribí todo esto...</h3>
+<p>porque hay personas que hacen que la vida sea mejor solo por el hecho de estar en ella, y vos sos esa persona para mí.</p>
+<div class="flower">✦ · ♡ · ✦</div>
+</section>
+<div class="footer">Hecho especialmente para vos · con mi voz y mis palabras</div>
+</main>
+</body>
+</html>
